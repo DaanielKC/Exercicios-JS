@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu primeiro programa...</title>
+    <style>
+        body {
+            background-color: darkslateblue;
+            color: antiquewhite;
+            font: normal 20pt Arial; 
+        }
+        h1 {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Olá, mundo!</h1>
+    <p>Já me livrei da maldição</p>
+    <script>
+        var n1 = Number(window.prompt('Digite um número: ')); // Number() converte uma string para um número
+        var n2 = Number(window.prompt('Digite outro número: ')); // Number.parseInt() converte uma string para um número inteiro e Number.parseFloat() para um número real
+        var s = n1 + n2;
+        window.alert(`A soma entre ${n1} e ${n2} é igual a ${s}`); // ${} é uma template string, para colocar variáveis dentro de uma string
+        // Para transformar um número em string, pode-se usar o String() ou o n.toString() ou concatenar com uma string vazia ''
+
+        // s.length mostra quantos caracteres tem a string
+        // s.toUpperCase() transforma a string em maiúscula
+        // s.toLowerCase() transforma a string em minúscula
+    </script>
+</body>
+</html>
+
+
