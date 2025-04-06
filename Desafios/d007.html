@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio do conversor de moedas</title>
+    <style>
+        body {
+            font: Normal 18pt Arial;
+        }
+
+        input {
+            height: 70px;
+            width: 290px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor R$ -> US$</h1>
+    <input type="button" value="Converter" onclick="converter()">
+    <p>Clique no botão acima para iniciar.</p>
+    <div id="res"></div>
+</body>
+
+<script>
+    let res = document.getElementById("res")
+    let cot = Number(prompt('Antes de mais nada, quanto está a cotação do dólar agora?'))
+    
+    function converter() {
+        let din = Number(prompt('Quantos R$ você tem na carteira?'))
+        let dol = din / cot
+        res.innerHTML = `<p>Com ${din.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} você pode comprar ${dol.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</p>`  
+    }
+
+</script>
+</html>

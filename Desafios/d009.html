@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio reajuste salarial</title>
+    <style>
+        body {
+            font: Normal 18pt Arial;
+        }
+
+        input {
+            height: 70px;
+            width: 290px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reajuste salarial</h1>
+    <input type="button" value="Reajuste Salário" onclick="calcular()">
+    <p>Clique no botão acima para iniciar.</p>
+    <div id="res"></div>
+
+</body>
+
+<script>
+    let res = document.getElementById("res")
+    function calcular() {
+        let employee = prompt('Qual é o nome do funcionário?')
+        let salary = Number(prompt(`Qual é o salário de ${employee}`))
+        let percent = Number(prompt(`O salário de ${employee} vai ser reajustado em qual porcentagem?`))
+        let readjust = percent / 100
+        
+        res.innerHTML = `<h2>${employee} recebeu um aumento salarial!</h2>`
+        res.innerHTML += `<p> O salário atual era de ${salary.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} </p>`
+        res.innerHTML += `<p>Com um aumento de ${percent}%, o salário vai aumentar ${(salary * readjust).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} no próximo mês.</p>`
+        res.innerHTML += `<p>E a partir daí, ${employee} vai passar a ganhar ${((1 + readjust)*salary).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} </p>`
+    }
+</script>
+</html>
