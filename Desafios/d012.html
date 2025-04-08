@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio preço mudou</title>
+    <style>
+        body {
+            font: Normal 18pt Arial;
+        }
+
+        input {
+            height: 70px;
+            width: 290px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <input type="button" value="Verificar" onclick="verify()">
+    <p>Clique no botão acuma para analisar a mudança</p>
+    <div id="answer"></div>
+</body>
+
+<script>
+    let answer = document.getElementById('answer')
+    function verify() {
+        let pricebf = Number(prompt('Qual era o preço anterior do produto?'))
+        let priceaf = Number(prompt('Qual é o preço atual do produto?'))
+        answer.innerHTML = '<h2>Analisando os valores informados</h2>'
+        answer.innerHTML += `<p>O produto custava ${pricebf.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} e agora custa ${priceaf.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}.</p>`
+        let diff = Math.abs(priceaf - pricebf)
+        if (pricebf < priceaf) {
+            let percent = (diff / pricebf) * 100
+            answer.innerHTML += '<p>Hoje o produto está mais caro.</p>'
+            answer.innerHTML += `<p>O preço subiu ${diff.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} em relação ao preço anterior</p>`
+            answer.innerHTML += `<p>Uma variação de ${percent.toLocaleString('pt-BR')}% pra cima</p>`
+        } else if (pricebf > priceaf) {
+            let percent = (diff / pricebf) * 100
+            answer.innerHTML += '<p>Hoje o produto está mais barato.</p>'
+            answer.innerHTML += `<p>O preço desceu ${diff.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} em relação ao preço anterior</p>`
+            answer.innerHTML += `<p>Uma variaçãp de ${percent.toLocaleString('pt-BR')}% pra baixo.</p>`
+        } else {
+            answer.innerHTML += '<p>Hoje o preço do produto não mudou.</p>'
+        }
+
+
+}
+</script>
+</html>

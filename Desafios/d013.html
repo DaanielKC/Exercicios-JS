@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio situacao aluno</title>
+    <style>
+        body {
+            font: Normal 18pt Arial;
+        }
+
+        input {
+            height: 70px;
+            width: 290px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do aluno</h1>
+    <input type="button" value="Entrar com as notas" onclick="verify()">
+    <p>Clique no botão acima para informar as notas do aluno.</p>
+    <div id="answer"></div> 
+</body>
+
+<script>
+    let answer = document.getElementById('answer')
+    function verify() {
+        let name = prompt('Qual é o nome do aluno?')
+        let n1 = Number(prompt('Qual é a primeira nota do aluno?'))
+        let n2 = Number(prompt('Qual é a segunda nota do aluno?'))
+        let avg = (n1 + n2) / 2
+        answer.innerHTML = `<h2>Analisando a situação de ${name}</h2>`
+        answer.innerHTML += `<p>Com as notas ${n1} e ${n2}, a <strong>média é ${avg.toLocaleString('pt-BR')}</strong></p>`
+        
+        if (avg >= 6) {
+            answer.innerHTML += `<p>Com média acima de ${avg.toLocaleString('pt-BR')}, o aluno está <strong><mark style="background:lightgreen">APROVADO</mark></strong> </p>`
+        } else if (avg >= 3 && avg < 6) {
+            answer.innerHTML += `<p>Com média de ${avg.toLocaleString('pt-BR')}, o aluno está de <strong><mark style="background:orange">RECUPERAÇÃO</mark></strong></p>`
+        } else {
+            answer.innerHTML += `<p>Com média de ${avg.toLocaleString('pt-BR')}, o aluno está <strong><mark style="background:red">REPROVADO</mark></strong></p>`
+    }
+}
+</script>
+</html>

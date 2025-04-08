@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Ano Bissexto</title>
+    <style>
+        body {
+            font: Normal 18pt Arial;
+        }
+
+        input {
+            height: 70px;
+            width: 290px;
+            font-size: 25px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Ano Bissexto</h1>
+    <input type="button" value="Verificar" onclick="verify()">
+    <p>Informe um ano para saber se ele é bissexto</p>
+    <div id="answer"></div>
+</body>
+
+<script>
+let res = document.getElementById('res')
+function verify() {
+    let year = Number(prompt('Qual é o ano que você quer vrificar?'))
+    answer.innerHTML = `<h2>Analisando o ano de ${year}</h2>`
+    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        isbis = '<strong><mark style="background:lightgreen">É BISSEXTO</mark>✅</strong>'
+    } else {
+        isbis = '<strong><mark style="background:red">NÃO É BISSEXTO</mark>❌</strong>' 
+    }
+
+    answer.innerHTML += `O ano de ${year} ${isbis}`
+}
+
+</script>
+</html>
